@@ -1,0 +1,22 @@
+HOW TO RUN — Loan Default Risk Prediction System
+=================================================
+
+Option 1 (easiest):
+    ./run.sh
+
+Option 2 (step by step):
+    1. Install dependencies:   pip install -r requirements.txt
+    2. EDA plots:              python3 src/eda.py
+    3. Train the models:       python3 src/train.py
+       (Logistic Regression / Random Forest / XGBoost,
+        confusion matrices, feature importance, SHAP summary)
+    4. Launch the dashboard:   streamlit run dashboard/app.py
+       Then open http://localhost:8501, fill in the applicant form
+       and click "Simulate approval" to get a risk score + explanation.
+
+Outputs:
+    reports/model_comparison.csv     metrics for the 3 models
+    reports/plots/                   confusion matrices, SHAP, distributions
+    models/loan_risk_model.joblib    best model bundle
+
+Stop the dashboard with Ctrl+C.
