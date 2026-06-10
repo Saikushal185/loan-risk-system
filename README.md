@@ -35,3 +35,8 @@ loan-risk-system/
 | < 30% | Low risk | Approve |
 | 30–55% | Medium risk | Approve with conditions |
 | > 55% | High risk | Decline or require guarantor |
+
+## Business recommendations
+- Credit history is the dominant risk driver — verify it first; applicants without history should follow the conditional-approval path.
+- High loan-to-income ratios drive defaults: cap LTI or require co-applicants above the threshold.
+- Use the SHAP explanation in the dashboard to document every lending decision (audit trail).
