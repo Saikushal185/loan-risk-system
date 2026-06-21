@@ -7,3 +7,9 @@ venv/
 .DS_Store
 dist/
 .next/
+
+# batch outputs
+reports/batch_decisions.csv
+reports/decisions.csv
+.pytest_cache/
+.ruff_cache/
