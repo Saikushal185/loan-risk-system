@@ -48,7 +48,8 @@ def engineer_features(df: pd.DataFrame) -> pd.DataFrame:
     df["TotalIncome"] = df["ApplicantIncome"] + df["CoapplicantIncome"]
     df["LoanToIncome"] = df["LoanAmount"] * 1000 / df["TotalIncome"].replace(0, np.nan)
     df["LoanToIncome"] = df["LoanToIncome"].fillna(df["LoanToIncome"].median())
-    df["EMI"] = df["LoanAmount"] * 1000 / df["Loan_Amount_Term"]
+    df["EMI"] = df["LoanAmount"] * 1000 / df["Loan_Amount_Term"].replace(0, np.nan)
+    df["EMI"] = df["EMI"].fillna(df["EMI"].median())
     df["BalanceIncome"] = df["TotalIncome"] - df["EMI"]
     return df
 
