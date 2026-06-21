@@ -40,3 +40,31 @@ loan-risk-system/
 - Credit history is the dominant risk driver — verify it first; applicants without history should follow the conditional-approval path.
 - High loan-to-income ratios drive defaults: cap LTI or require co-applicants above the threshold.
 - Use the SHAP explanation in the dashboard to document every lending decision (audit trail).
+
+## Development
+
+```bash
+make install   # install dev dependencies
+make test      # run the test suite
+make lint      # lint with ruff
+```
+
+## Docker
+
+```bash
+docker build -t loan-risk .
+docker run -p 8501:8501 loan-risk
+```
+
+## REST API
+
+```bash
+uvicorn src.api:app --reload
+# POST /score with applicant JSON returns probability, band and decision
+```
+
+## Batch scoring
+
+```bash
+python -m src.batch_score data/new_applicants.csv reports/decisions.csv
+```
